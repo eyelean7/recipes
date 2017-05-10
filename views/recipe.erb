@@ -1,1 +1,18 @@
-<h1> <%= recipe.recipe() %> </h1>
+<h1 class ="jumbotron"> <%= @recipe.recipe() %> </h1>
+<div class="container">
+  <h3>Ingredients:</h3>
+  <p>  <%= @recipe.ingredients()%></p>
+  <h3>Instructions:</h3>
+  <p>  <%= @recipe.instructions()%></p>
+
+
+  <a href="/recipe/<%= @recipe.id()  %>/update"><button class="btn" type="button" name="button">Update Recipe</button></a>
+  <form action="/recipe/<%= @recipe.id() %>" method="post">
+    <input name="_method" type="hidden" value="delete">
+
+    <button class="btn" type="submit">Delete Recipe</button>
+  </form>
+
+  <a href="/"><button class="btn" type="button" name="button">Go Home</button></a>
+
+</div>

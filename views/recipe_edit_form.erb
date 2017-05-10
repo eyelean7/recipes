@@ -1,7 +1,9 @@
-<div class="container">
-  <h1>Add a New Recipe:</h1>
+<h1>Update Recipe: <%= @recipe.recipe() %></h1>
 
-  <form action="/recipes" method="post">
+<div class="container">
+
+  <form action="/recipe/<%= @recipe.id() %>" method="post">
+    <input type="hidden" name="_method" value="patch">
     <div class="form-group">
       <label for="new_recipe">Recipe Name:</label>
       <input type="new_recipe" name="new_recipe">

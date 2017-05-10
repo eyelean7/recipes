@@ -1,16 +1,18 @@
 <h1 class="jumbotron">Recipe Box</h1>
+<div class="container">
+  <% if  @recipes.any?()%>
+  <h4>Here are your recipes:</h4>
+  <ul>
+  <%  @recipes.each() do |recipe|%>
 
-<% if  @recipes.any?()%>
-<h4>Here are your recipes:</h4>
-<ul>
-<%  @recipes.each() do |recipe|%>
+  <a href="/recipe/<%= recipe.id() %>"><li> <%= recipe.recipe() %> </li></a>
 
-<a href="/recipe/ <%= recipe.id() %>"><li> <%= recipe.recipe() %> </li></a>
+  <% end  %>
+  </ul>
+  <% else %>
+  <h4>Add Some Recipies!</h4>
+  <% end  %>
 
-<% end  %>
-</ul>
-<% else %>
-<h4>Add Some Recipies!</h4>
-<% end  %>
+  <a href="/recipe/new"><button type="button">Add New Recipe</button></a>
 
-<a href="/recipe/new"><button type="button">Add New Recipe</button></a>
+</div>
