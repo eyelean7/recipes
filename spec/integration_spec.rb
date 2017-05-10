@@ -9,6 +9,7 @@ describe('recipe', {:type => :feature}) do
     fill_in('new_recipe', :with => 'Chef Salad')
     fill_in('ingredients', :with => 'salad')
     fill_in('instructions', :with => 'make it')
+    fill_in('tags', :with => 'these are tags')
     click_button('Add Recipe')
     expect(page).to have_content('Chef Salad')
     click_link('Chef Salad')

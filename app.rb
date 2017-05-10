@@ -1,6 +1,7 @@
 require("bundler/setup")
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+require('./lib/combo')
 
 get('/') do
   @recipes = Recipe.all()
@@ -15,7 +16,14 @@ post('/recipes') do
   recipe = params.fetch('new_recipe')
   ingredients = params.fetch('ingredients')
   instructions = params.fetch('instructions')
-  recipe = Recipe.create({:recipe => recipe, :ingredients => ingredients, :instructions => instructions})
+  tags = params.fetch('tags').split(" ")
+  tag_ids = []
+  tags.each() do |tag|
+    this_tag = Tag.create(:tag => tag)
+    tag_ids.push(this_tag.id())
+  end
+binding.pry
+  recipe = Recipe.create({:recipe => recipe, :ingredients => ingredients, :instructions => instructions, :tag_ids => tag_ids})
   redirect('/')
 end
 
