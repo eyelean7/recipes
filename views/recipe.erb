@@ -4,6 +4,12 @@
   <p>  <%= @recipe.ingredients()%></p>
   <h3>Instructions:</h3>
   <p>  <%= @recipe.instructions()%></p>
+  <ul>
+    <% @recipe.tags.each() do |tag| %>
+      <li><%= tag.tag() %></li>
+    <% end %>
+  </ul>
+
 
 
   <a href="/recipe/<%= @recipe.id()  %>/update"><button class="btn" type="button" name="button">Update Recipe</button></a>
