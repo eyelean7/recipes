@@ -12,7 +12,7 @@ describe('recipe', {:type => :feature}) do
     fill_in('tags', :with => 'these are tags')
     click_button('Add Recipe')
     expect(page).to have_content('Chef Salad')
-    test = Recipe.where("recipe = 'Chef Salad'")
+    expect(Recipe.where("recipe = 'Chef Salad'").tags).to(eq(["these", "are", "tags"]))
 binding.pry
     click_link('Chef Salad')
     expect(page).to have_content('Chef Salad')

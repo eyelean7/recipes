@@ -23,7 +23,7 @@ post('/recipes') do
     this_tag = Tag.create(:tag => tag)
     tag_ids.push(this_tag.id())
   end
-# binding.pry
+binding.pry
   recipe = Recipe.create({:recipe => recipe, :ingredients => ingredients, :instructions => instructions, :tag_ids => tag_ids})
   redirect('/')
 end

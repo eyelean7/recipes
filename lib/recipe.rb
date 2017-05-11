@@ -11,12 +11,3 @@ def grabtag(tags)
     tag_ids.push(this_tag.id())
   end
 end
-
-def tags
-  recipe_tags = []
-  results = Combos.where(recipe_id = self.id())
-  results.each() do |result|
-    tag_id = result.fetch()
-  end
-  recipe_tags
-end

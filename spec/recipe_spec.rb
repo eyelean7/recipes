@@ -9,6 +9,7 @@ require('spec_helper')
       expect(recipe.tags()).to(eq([farm, breakfast]))
     end
   end
+  
 end
   # describe('#grabtag') do
   #   it ('pushes tag into tag array')
