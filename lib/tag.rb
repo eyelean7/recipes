@@ -11,9 +11,15 @@ class Tag < ActiveRecord::Base
 # end
 private
 
-def matching_tag_id
-  if self.!unique?
-    identical=Tag.where("tag = ?", self.tag())
-    return identical
+  def matching_tag_id
+    if Tag.where(:tag => self.tag())
+      identical=Tag.where("tag = ?", self.tag())
+      return identical
+    end
   end
 end
+
+# what???
+# Tag.
+#   find_or_initialize_by(:tag => self.tag).
+#   update_attributes!(:recipe_ids => [])

@@ -1,3 +1,14 @@
 body{
   font-family: 'Abril Fatface', cursive;
+  background-image: url("https://celiabedilia.files.wordpress.com/2012/11/271975264968163709_2f3zqq9o_c.jpg?w=1200");
+  text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.btn {
+  margin: 5px;
+  border: 2px solid black;
 }
