@@ -16,13 +16,14 @@ post('/recipes') do
   recipe = params.fetch('new_recipe')
   ingredients = params.fetch('ingredients')
   instructions = params.fetch('instructions')
-  tags = params.fetch('tags').split(" ")
+  tags = params.fetch('tags')
+  tags = tags.split()
   tag_ids = []
   tags.each() do |tag|
     this_tag = Tag.create(:tag => tag)
     tag_ids.push(this_tag.id())
   end
-binding.pry
+# binding.pry
   recipe = Recipe.create({:recipe => recipe, :ingredients => ingredients, :instructions => instructions, :tag_ids => tag_ids})
   redirect('/')
 end
